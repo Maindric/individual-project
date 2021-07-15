@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Akame ga Kill!",
+        "format": "bd",
+        "interest": "Owned",
+        "image": "http://animeking.com/akame-ga-kill.png"
+    },
+    {
+        "name": "K-On!",
+        "format": "dvd",
+        "interest": "Owned",
+        "image": "http://animeking.com/k-on.png"
+    },
+    {
+        "name": "Final Fantasy: Lost Stranger",
+        "format": "manga",
+        "interest": "Owned",
+        "image": "http://animeking.com/fftls.png"
+    },
+    {
+        "name": "Ready Player One",
+        "format": "book",
+        "interest": "Owned",
+        "image": "http://animeking.com/ready-player-one.png"
+    },
+    {
+        "name": "Ready Player One",
+        "format": "bd",
+        "interest": "Interested",
+        "image": "http://animeking.com/ready-player-one.png"
+    },
+    {
+        "name": "Cruella",
+        "format": "bd",
+        "interest": "Want",
+        "image": "http://animeking.com/cruella.png"
+    },
+    {
+        "name": "New Game!",
+        "format": "bd",
+        "interest": "Own",
+        "image": "http://animeking.com/new-game.png"
+    },
+    {
+        "name": "New Game!!",
+        "format": "bd",
+        "interest": "Own",
+        "image": "http://animeking.com/new-game.png"
+    },
+    {
+        "name": "Hellsing Ultimate",
+        "format": "bd",
+        "interest": "Own",
+        "image": "http://animeking.com/hsu.png"
+    }
+]
