@@ -27,7 +27,7 @@ router.post('/new', function(req, res, next) {
     }
     knex('collection')
         .select('title')
-        .where({title: newItem.title, format: newItem.format})
+        .where({title: newItem.title, format: newItem.format, volume: newItem.volume})
         .then(data => {
             if(data.length > 0)
             {

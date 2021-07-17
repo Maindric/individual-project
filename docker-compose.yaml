@@ -1,54 +1,38 @@
-# docker config version
 version: "3.3"
-# begin listing containers
+
 services:
-    # container
     frontend:
-        # image to be used for spin-up
         build: frontend
-        # port connection
-        # local port : container port
         ports:
             - "3000:3000"
         volumes:
             - ./frontend:/app
-        # internal network for communication between containers
-        # will not spin-up this container until the dependencies have spun-up
         depends_on:
             - backend
-        environment:
-            BACKEND_URL: http://wolfbuntu:3001
-        # env_file:
+        env_file: .env
 
     db:
         image: postgres
-        #   container_name: db
         ports:
             - "5432:5432"
         restart: always
-        environment:
-            # specific to postgresql for spinning-up the database
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: docker
-            POSTGRES_DB: db
+
         volumes:
             - ./db:/var/lib/postgresql/data/
         healthcheck:
             test: ["CMD", "sh", "-c", "pg_isready -U $$POSTGRES_USER -h $$(hostname -i)"]
-            interval: 10s
+            interval: 5s
             timeout: 15s
-            retries: 3
+            retries: 5
+        env_file: .env
 
     backend:
         build: backend
         ports:
             - "3001:3000"
-        environment:
-            # specific to postgresql for connecting to the database
-            DB_CONNECTION_STRING: "postgres://postgres:docker@db:5432/db"
-            NODE_ENV: "development"
         volumes:
             - ./backend:/app
         depends_on:
             db:
                 condition: service_healthy
+        env_file: .env
