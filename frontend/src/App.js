@@ -14,17 +14,21 @@ function App() {
     const [ listChanged, setListChanged ] = useState(false);
     const [ currentCollectionList, setCurrentCollectionList ] = useState({});
 
-
+    function loadPage(pageNumber) {
+        if(pageNumber === previousCollectionList.pageNumber) {
+            setCurrentCollectionList(previousCollectionList);
+        } else if(pageNumber === nextCollectionList.pageNumber) {
+            setCurrentCollectionList(nextCollectionList);
+        }
+    }
 
     const themeValues = {
         user: user,
         setUser: setUser,
         previousCollectionList:previousCollectionList,
-        setPreviousCollectionList:setPreviousCollectionList,
         currentCollectionList:currentCollectionList,
         setCurrentCollectionList:setCurrentCollectionList,
         nextCollectionList:nextCollectionList,
-        setNextCollectionList:setNextCollectionList,
         listChanged:listChanged,
         setListChanged:setListChanged.apply
     }
