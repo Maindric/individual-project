@@ -9,7 +9,8 @@ services:
             - ./frontend:/app
         depends_on:
             - backend
-        env_file: .env
+        env_file: 
+            - ./.env
 
     db:
         image: postgres
@@ -24,7 +25,8 @@ services:
             interval: 5s
             timeout: 15s
             retries: 5
-        env_file: .env
+        env_file: 
+            - ./.env
 
     backend:
         build: backend
@@ -35,4 +37,5 @@ services:
         depends_on:
             db:
                 condition: service_healthy
-        env_file: .env
+        env_file: 
+            - ./.env

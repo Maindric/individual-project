@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import CollectionHolder from './components/CollectionHolder';
 import ListContext from './components/ListContext';
 
-const apiUrl = process.env.BACKEND_URL;
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
     const [ user, setUser ] = useState(null);
-    const [ totalPages, setTotalPages ] = setState(0);
+    const [ totalPages, setTotalPages ] = useState(0);
     const [ previousCollectionList, setPreviousCollectionList ] = useState({});
     const [ nextCollectionList, setNextCollectionList ] = useState({});
     const [ listChanged, setListChanged ] = useState(false);
@@ -32,6 +32,14 @@ function App() {
         listChanged:listChanged,
         setListChanged:setListChanged.apply
     }
+
+    useEffect(_ => {
+        console.log("Backend URL:", apiUrl);
+        fetch(`${apiUrl}/collection`)
+            .then(data => data.json())
+            .then(json => console.log(json))
+            .catch(e => console.log('ERROR!!'));
+    })
 
     return (
         <ListContext.Provider value={themeValues}>
