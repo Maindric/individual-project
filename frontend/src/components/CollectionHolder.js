@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Dialog, Paper
 import { useEffect, useContext, useState } from "react";
 import clsx from 'clsx';
 import ListContext from "./ListContext";
-import {Add} from "@material-ui/icons"
+import {Add, ArrowBackIos, ArrowForwardIos} from "@material-ui/icons"
 
 const paperStyle = {
     width: '80vw',
@@ -330,6 +330,12 @@ function CollectionHolder() {
                     </Button>
                 </DialogActions>
             </Dialog>
+            <Button style={{position:'fixed', top:'50vh', left:'32px', width:'48px', minWidth:'48px', height:'48px', minHeight:'48px'}} variant='outlined' color='primary' onClick={_ => context.setCurrentPage(context.currentPage - 1)}>
+                <ArrowBackIos color="primary" />
+            </Button>
+            <Button style={{position:'fixed', top:'50vh', left:'calc(100vw - 96px)', width:'48px', minWidth:'48px', height:'48px', minHeight:'48px'}} variant='outlined' color='primary' onClick={_ => context.setCurrentPage(context.currentPage + 1)}>
+                <ArrowForwardIos color="primary" />
+            </Button>
             <Button style={{position:'fixed', top:'calc(100vh - 96px)', left:'calc(100vw - 96px)', width:'48px', minWidth:'48px', height:'48px', minHeight:'48px'}} variant='outlined' color='primary' onClick={_ => cardClick(itemDefault)}>
                 <Add color="primary" />
             </Button>
